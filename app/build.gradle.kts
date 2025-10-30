@@ -6,6 +6,9 @@ android {
     namespace = "com.example.onapp001"
     compileSdk = 36
 
+
+
+
     defaultConfig {
         applicationId = "com.example.onapp001"
         minSdk = 24
@@ -24,14 +27,29 @@ android {
                 "proguard-rules.pro"
             )
         }
+        debug {
+            isMinifyEnabled = false
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    buildFeatures {
+        viewBinding = true
+    }
+
+
 }
 
+
+
+
+
+
+
 dependencies {
+
 
     implementation(libs.appcompat)
     implementation(libs.material)
@@ -40,4 +58,8 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-}
+    implementation("org.mozilla.geckoview:geckoview-omni:144.0.20251027123126")
+
+
+
+    }
