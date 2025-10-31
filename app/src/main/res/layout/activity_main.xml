@@ -1,39 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/icon_bar"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="8dp">
 
         <ImageButton
-            android:id="@+id/backButton"
-            android:src="@android:drawable/ic_media_previous"
+            android:id="@+id/btn_bookmark"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:contentDescription="Back" />
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="ブックマーク"
+            tools:srcCompat="@drawable/arrows_right_left" />
 
         <ImageButton
-            android:id="@+id/forwardButton"
-            android:src="@android:drawable/ic_media_next"
+            android:id="@+id/btn_history"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:contentDescription="Forward" />
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="履歴"
+            tools:srcCompat="@drawable/bell" />
 
-        <EditText
-            android:id="@+id/urlBar"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+        <ImageButton
+            android:id="@+id/btn_memo"
+            android:layout_width="48dp"
             android:layout_height="48dp"
-            android:hint="Enter URL" />
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="メモ"
+            tools:srcCompat="@drawable/bold" />
+
+        <ImageButton
+            android:id="@+id/btn_download"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="ダウンロード"
+            tools:srcCompat="@drawable/cursor_arrow_ripple" />
+
+        <ImageButton
+            android:id="@+id/btn_translate"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/honyaku"
+            tools:srcCompat="@drawable/star" />
+
+        <ImageButton
+            android:id="@+id/btn_reading"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="リーディングリスト"
+            tools:srcCompat="@drawable/document_currency_yen" />
     </LinearLayout>
 
     <org.mozilla.geckoview.GeckoView
         android:id="@+id/geckoView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1">
+
+    </org.mozilla.geckoview.GeckoView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Back"
+            tools:srcCompat="@drawable/chevron_left" />
+
+        <ImageButton
+            android:id="@+id/forwardButton"
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Forward"
+            tools:srcCompat="@drawable/chevron_right" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="6dp">
+
+            <EditText
+                android:id="@+id/urlBar"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@null"
+                android:hint="Enter URL"
+                android:paddingHorizontal="16dp" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
 </LinearLayout>
